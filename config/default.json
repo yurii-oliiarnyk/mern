@@ -1,0 +1,5 @@
+{
+  "port": 5000,
+  "jwtSecret": "yurii-mern",
+  "mongoUri": "mongodb+srv://yurii:12345@cluster0-9wazy.mongodb.net/app?retryWrites=true&w=majority"
+}

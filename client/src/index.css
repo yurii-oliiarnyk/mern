@@ -1,0 +1,30 @@
+@import '~materialize-css/dist/css/materialize.min.css';
+
+.app-input {
+  border-bottom: 1px solid #fff !important;
+  box-shadow: 0 1px 0 0 #fff !important;
+  color: #fff;
+}
+
+.app-input + label {
+  color: #fff;
+}
+
+.app-input:focus {
+  border-bottom: 1px solid #ffeb3b !important;
+  box-shadow: 0 1px 0 0 #ffeb3b !important;
+}
+
+.app-input:focus + label {
+  color: #ffeb3b !important;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active,
+input:-internal-autofill-selected {
+  transition: background-color 5000s ease-in-out 0s;
+  -webkit-box-shadow: 0 0 0px 1000px #1e88e5 inset !important;
+  -webkit-text-fill-color: #fff !important;
+}
