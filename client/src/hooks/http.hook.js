@@ -1,17 +1,17 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback } from "react";
 
 export const useHttp = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
   const request = useCallback(
-    async (url, method = 'GET', body = null, headers = {}) => {
+    async (url, method = "GET", body = null, headers = {}) => {
       setLoading();
 
       try {
         if (body) {
           body = JSON.stringify(body);
-          headers['Content-Type'] = 'application/json';
+          headers["Content-Type"] = "application/json";
         }
 
         const response = await fetch(url, {
@@ -23,7 +23,7 @@ export const useHttp = () => {
         const data = await response.json();
 
         if (!response.ok) {
-          throw new Error(data.message || 'Щось пішло не так');
+          throw new Error(data.message || "Щось пішло не так");
         }
 
         setLoading(false);

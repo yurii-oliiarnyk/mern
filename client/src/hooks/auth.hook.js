@@ -1,9 +1,10 @@
-import { useState, useCallback, useEffect } from 'react';
+import { useState, useCallback, useEffect } from "react";
 
-const storageName = 'userData';
+const storageName = "userData";
 
 export const useAuth = () => {
   const [token, setToken] = useState(null);
+  const [ready, setReady] = useState(false);
   const [userId, setUserId] = useState(null);
 
   const login = useCallback(({ token, userId }) => {
@@ -31,7 +32,9 @@ export const useAuth = () => {
     if (data && data.token) {
       login(data);
     }
+
+    setReady(true);
   }, [login]);
 
-  return { login, logout, token, userId };
+  return { login, logout, token, userId, ready };
 };

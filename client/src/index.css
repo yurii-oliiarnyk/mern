@@ -1,21 +1,21 @@
-@import '~materialize-css/dist/css/materialize.min.css';
+@import "~materialize-css/dist/css/materialize.min.css";
 
-.app-input {
+.app-input--auth {
   border-bottom: 1px solid #fff !important;
   box-shadow: 0 1px 0 0 #fff !important;
   color: #fff;
 }
 
-.app-input + label {
+.app-input--auth + label {
   color: #fff;
 }
 
-.app-input:focus {
+.app-input--auth:focus {
   border-bottom: 1px solid #ffeb3b !important;
   box-shadow: 0 1px 0 0 #ffeb3b !important;
 }
 
-.app-input:focus + label {
+.app-input--auth:focus + label {
   color: #ffeb3b !important;
 }
 
