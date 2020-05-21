@@ -17,7 +17,7 @@ const CreatePage = (props) => {
   const onKeyPressHandler = async (event) => {
     if (event.key === "Enter") {
       const data = await request(
-        "/api/links/generate",
+        "/api/links",
         "POST",
         {
           from: link,

@@ -1,5 +1,5 @@
 import React, { useState, useCallback, useContext, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 import { useHttp } from "../hooks/http.hook";
 import { AuthContext } from "../context/AuthContext";
 import Loader from "../components/Loader";
@@ -10,6 +10,7 @@ const DetailPage = (props) => {
   const { request, loading } = useHttp();
 
   const { token } = useContext(AuthContext);
+  const history = useHistory();
   const linkId = useParams().id;
 
   const getLink = useCallback(async () => {
@@ -26,6 +27,16 @@ const DetailPage = (props) => {
     getLink();
   }, [getLink]);
 
+  const removeLink = useCallback(async () => {
+    try {
+      await request(`/api/links/${linkId}`, "DELETE", null, {
+        Authorization: `Berear ${token}`,
+      });
+
+      history.push(`/links`);
+    } catch (e) {}
+  }, [token, linkId, request]);
+
   if (loading) {
     return <Loader />;
   }
@@ -34,7 +45,7 @@ const DetailPage = (props) => {
     return <p>Не вдалось завантажити посилання.</p>;
   }
 
-  return <LinkCard link={link} />;
+  return <LinkCard link={link} removeLink={removeLink} />;
 };
 
 export default DetailPage;

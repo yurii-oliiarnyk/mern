@@ -1,7 +1,7 @@
 import React from "react";
 
 const LinkCard = (props) => {
-  const { link } = props;
+  const { link, removeLink } = props;
 
   return (
     <>
@@ -25,6 +25,14 @@ const LinkCard = (props) => {
       <p>
         Дата створення:
         <strong>{new Date(link.date).toLocaleDateString()}</strong>
+      </p>
+      <p>
+        <a
+          className="waves-effect waves-light btn red"
+          onClick={() => removeLink()}
+        >
+          Видалити
+        </a>
       </p>
     </>
   );
