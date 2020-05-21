@@ -21,7 +21,7 @@ const LinksPage = (props) => {
 
   useEffect(() => {
     fetchLinks();
-  }, []);
+  }, [fetchLinks]);
 
   if (loading) {
     return <Loader />;

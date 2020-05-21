@@ -17,6 +17,8 @@ router.post("/generate", auth, async (req, res) => {
       return res.json({ link: existing });
     }
 
+    console.log(baseUrl);
+
     const code = shortid.generate();
     const to = baseUrl + "/t/" + code;
 

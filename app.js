@@ -10,6 +10,7 @@ const app = express();
 app.use(express.json({ extened: true }));
 app.use("/api/auth", require("./routes/auth-routes"));
 app.use("/api/links", require("./routes/links-routes"));
+app.use("/t", require("./routes/redirect-routes"));
 
 async function start() {
   try {
