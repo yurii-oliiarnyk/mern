@@ -18,8 +18,6 @@ const DetailPage = (props) => {
         Authorization: `Berear ${token}`,
       });
 
-      console.log(fetched);
-
       setLink(fetched);
     } catch (e) {}
   }, [token, linkId, request]);
@@ -32,7 +30,11 @@ const DetailPage = (props) => {
     return <Loader />;
   }
 
-  return link && <LinkCard link={link} />;
+  if (!link) {
+    return <p>Не вдалось завантажити посилання.</p>;
+  }
+
+  return <LinkCard link={link} />;
 };
 
 export default DetailPage;
